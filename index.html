@@ -1,17 +1,39 @@
-<!DOCTYPE html>
 <html>
 <head>
 	<title>Walk-a-Dog</title>
 	<script type="text/javascript" src="jquery-2.2.4.js"></script>
 	<script type="text/javascript" src="bootstrap-3.3.6-dist\js\bootstrap.min.js"></script>
+	<script type="text/javascript" src="leaflet.js"></script>
+	<link rel="stylesheet" href="leaflet.css">
 	<link rel="stylesheet" href="bootstrap-3.3.6-dist\css\bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 	<div class="container-fluid">
-		<blockquote>
-			<p>I'm some text!</p>
-			<footer>Paragraph</footer>
-		</blockquote>
+		<div class="jumbotron">
+			<div class="page-header">
+				<div id="topTitle">
+					<img src="dog_logo_computer_beta_360.png">
+					<h1>Walk-a-Dog</h1>
+				</div>
+			</div>
+
+			<h3>For connecting those who's dog needs to be walked and those who have time for that.</h3>
+		</div>
+
+		<div class="alert alert-warning fade in">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  			<strong>Still under development!</strong>
+		</div>
+
+		<div id="map">
+			<script>
+				var map = L.map("map").setView([49.61, 6.1333], 16);
+				L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
+			</script>
+		</div>
 	</div>
 </body>
 </html>

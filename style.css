@@ -1,0 +1,9 @@
+#topTitle {
+	display: inline-block;
+}
+
+#map {
+	height: 40%;
+	width: 100%;
+	border: 5px solid black;
+}
