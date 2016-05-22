@@ -1,3 +1,8 @@
+body {
+	background-image: url("background.jpg");
+	background-size: 100% 100%;
+}
+
 #topTitle {
 	display: inline-block;
 }
@@ -6,4 +11,8 @@
 	height: 40%;
 	width: 100%;
 	border: 5px solid black;
+}
+
+.jumbotron {
+	background-color: transparent;
 }
