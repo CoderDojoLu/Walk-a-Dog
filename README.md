@@ -5,20 +5,20 @@ Additional function in Pick-a-Poop for connecting those who's dog needs to be wa
 #some specs
 
 User stories: (things which user does on the app)
-*Registering
-*logging in
-*add dog
-*choose dog
+*Registering<br />
+*logging in<br />
+*add dog<br />
+*choose dog<br />
 
 How should we make this selecting work? If someone chooses the dog should it be automatically deleted from the database
-or should the dog owner choose one applicant and then remove the dog from the db?
+or should the dog owner choose one applicant and then remove the dog from the db?<br />
 
 #stack
 FrontEnd:
 *HTML
 
-BackEnd:
-*(suggestions:)
-*php (Old but I've been using (atte))
-*node.js (sexy, new to me)
-*python (I've been using but not for server)
+BackEnd:<br />
+*(suggestions:)<br />
+*php (Old but I've been using (atte))<br />
+*node.js (sexy, new to me)<br />
+*python (I've been using but not for server)<br />
