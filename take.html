@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>Walk-a-dog Login</title>
+	<title>Take the job</title>
 
 	<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -17,14 +17,13 @@
 <body>
 
 	<div>
-        <legend>Create a job</legend>
+        <legend>Take the job</legend>
 
         <p>
           <!--<label>Text box</label>-->
           <input type = "text"
                  id = "name"
-                 value = "Your name" 
-				 size = "17" /> 
+                 value = "name" /> 
 
           <input type = "text"
                  id = "e-mail"
@@ -32,37 +31,25 @@
         </p>
 
         <p>
-          <input type = "text"
-                 id = "dogname"
-                 value = "Your dog's name"
-                 size = "17" />
-   
-          <input type = "text"
-                 id = "breed"
-                 value = "Breed" />
-        </p>
-
-        <p>
-          <input type = "text"
-                 id = "description"
-                 value = "Description" 
-                 size = "40" />
-   
-        </p>
-
-        <p>
-        <button type="button" id="create" class="btn btn-info" onclick="createFunction()">Create</button>
+        <button type="button" id="take" class="btn btn-info" onclick="takeFunction()">Take</button>
         </p>
 
     </div>
 
     <script type="text/javascript">
-    	function createFunction(){
-    		var x = document.getElementById("create");
+    	function takeFunction(){
+    		var x = document.getElementById("take");
 
     		var name = document.getElementById("name");
     		var email = document.getElementById("e-mail");
-    		var dogname = document.getElementById("dogname");
+
+    		 console.log(name);
+
+    		if(name=="name" && e-mail=="e-mail"){
+    			alert("Please enter your name and e-mail.");
+    			//location.reload();
+    		}
+
     		//opening the main page
     	}
     </script>
