@@ -22,39 +22,46 @@
         <p>
           <!--<label>Text box</label>-->
           <input type = "text"
-                 id = "myText"
+                 id = "Name"
                  value = "Your name" 
 				 size = "17" /> 
 
           <input type = "text"
-                 id = "myText"
+                 id = "e-mail"
                  value = "e-mail" />
         </p>
 
         <p>
           <input type = "text"
-                 id = "myText"
+                 id = "Dogname"
                  value = "Your dog's name"
                  size = "17" />
    
           <input type = "text"
-                 id = "myText"
+                 id = "breed"
                  value = "Breed" />
         </p>
 
         <p>
           <input type = "text"
-                 id = "myText"
+                 id = "description"
                  value = "Description" 
                  size = "40" />
    
         </p>
 
         <p>
-        <button type="button" class="btn btn-info">Create</button>
+        <button type="button" id="create" class="btn btn-info" onclick="createFunction()">Create</button>
         </p>
 
     </div>
+
+    <script type="text/javascript">
+    	function createFunction(){
+    		var x = document.getElementById("create");
+    		x.disabled = true;
+    	}
+    </script>
 
 </body>
 </html>
