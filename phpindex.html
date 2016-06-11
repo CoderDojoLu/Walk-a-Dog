@@ -92,7 +92,7 @@ $("#getjobform").submit(function(k) {
                       output[y].image = "uk_dog.png";
                     }
 
-                    $("#outputP").append("<img style='height: 75px; width: 75px' src='http://towall.tk/" + output[y].image + "'> <br/> <p><strong>Basic Information: </strong>" + output[y].description + "</p> <br /><p><strong>Payment: </strong>" + output[y].payment + "<br/> <button id='btn' type='button' onclick='openjobform()'>Take Job</button> <div id='cForm" + y + "'></div><form id='takejobform' style='display: none;'><input type='email' placeholder='Your email' id='takejobemail'><input type='text' placeholder='Message' id='takejobapplication'><input type='hidden' value='" + output[y].id + "'><input type='button' value='Submit' id='subBtn' onclick='getSubmit()'></form>");
+                    $("#outputP").append("<img style='height: 75px; width: 75px' src='http://towall.tk/" + output[y].image + "'> <br/> <p><strong>Basic Information: </strong>" + output[y].description + ", </p><p><strong>Payment: </strong>" + output[y].payment + "<br/> <button id='btn' type='button' onclick='openjobform()'>Take Job</button> <div id='cForm" + y + "'></div><form id='takejobform' style='display: none;'><input type='email' placeholder='Your email' id='takejobemail'><input type='text' placeholder='Message' id='takejobapplication'><input type='hidden' value='" + output[y].id + "'><input type='button' value='Submit' id='subBtn' onclick='getSubmit()'></form>");
 
                     y++;
 

@@ -2,15 +2,8 @@
   error_reporting(-1);
   ini_set('display_errors', 'On');
   set_error_handler("var_dump");
-	//header('Access-Control-Allow-Origin: *');
+	header('Access-Control-Allow-Origin: *');
 
-  $headers = 'From: webmaster@example.com' . "\r\n" .
-    'Reply-To: webmaster@example.com' . "\r\n" .
-    'X-Mailer: PHP/' . phpversion();
-    
-  mail("irneha@hotmail.com", "wad", "mailplease", $headers);
-  echo 'Email sent';
-/*
 	$server = "localhost";
 	$usr = "wad";
 	$pass = "wad11";
@@ -31,9 +24,32 @@
 
   $result = $conn->query($email);
 
-  echo '<script type="text/javascript">alert(' + $message + ');</script>';
-*/
+  require_once "Mail.php";
 
-  //$conn->close();
+  $from = '<' + $useremail + '>';
+  $to = '<irneha@hotmail.com>'; // Fixed address (test)
+  $subject = 'I would like to walk your dog!';
+  $body = "" + $message + "";
+
+  $headers = array(
+      'From' => $from,
+      'To' => $to,
+      'Subject' => $subject
+  );
+
+  $smtp = Mail::factory('smtp', array(
+          'host' => 'ssl://mail.mbox.lu',
+          'port' => '465',
+          'auth' => true,
+          'username' => 'relay@pick-a-poop.dog',
+          'password' => '7erShIeStIon'
+      ));
+
+  // Send the mail
+  $mail = $smtp->send($to, $headers, $body);
+
+  echo 'Email sent';
+
+  $conn->close();
 
 ?>
