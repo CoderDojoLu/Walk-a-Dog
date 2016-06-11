@@ -13,6 +13,8 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
 </head>
 <body>
 
@@ -21,13 +23,13 @@
 
         <p>
           <!--<label>Text box</label>-->
-          <input type = "file"
+          <input type = "text"
                  id = "name"
-                 value = "name" /> 
+                 placeholder = "name" /> 
 
           <input type = "text"
                  id = "e-mail"
-                 value = "e-mail" />
+                 placeholder = "e-mail" />
         </p>
 
         <p>
@@ -40,15 +42,15 @@
     	function takeFunction(){
     		var x = document.getElementById("take");
 
-    		var name = document.getElementById("name");
-    		var email = document.getElementById("e-mail");
+    		var name = document.getElementById("name").value;
+    		var email = document.getElementById("e-mail").value;
 
-    		 console.log(name);
-
-    		if(name=="name" && e-mail=="e-mail"){
+    		if(name=="" || email==""){
     			alert("Please enter your name and e-mail.");
-    			//location.reload();
-    		}
+    			location.reload();
+    		}else{
+          location.replace("Wad.html");
+        }
 
     		//opening the main page
     	}
