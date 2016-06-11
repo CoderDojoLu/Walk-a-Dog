@@ -1,0 +1,15 @@
+git add .
+
+git status
+
+git commit
+
+coment
+
+ctrl x to exit
+
+y for yes
+
+git pull
+
+git push
