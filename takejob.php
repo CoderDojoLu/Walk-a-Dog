@@ -1,6 +1,16 @@
 <?php
-	header('Access-Control-Allow-Origin: *');
+  error_reporting(-1);
+  ini_set('display_errors', 'On');
+  set_error_handler("var_dump");
+	//header('Access-Control-Allow-Origin: *');
 
+  $headers = 'From: webmaster@example.com' . "\r\n" .
+    'Reply-To: webmaster@example.com' . "\r\n" .
+    'X-Mailer: PHP/' . phpversion();
+    
+  mail("irneha@hotmail.com", "wad", "mailplease", $headers);
+  echo 'Email sent';
+/*
 	$server = "localhost";
 	$usr = "wad";
 	$pass = "wad11";
@@ -21,8 +31,9 @@
 
   $result = $conn->query($email);
 
-  mail($email, $useremail . "would like to walk your dog!", $message);
+  echo '<script type="text/javascript">alert(' + $message + ');</script>';
+*/
 
-  $conn->close();
+  //$conn->close();
 
 ?>
