@@ -1,3 +1,19 @@
 body {
-	background-image: "background.jpg"
+	background-image: url("background.jpg");
+	background-size: 100% 100%;
+	height: 100%;
+}
+
+#topTitle {
+	display: inline-block;
+}
+
+#map {
+	height: 40%;
+	width: 100%;
+	border: 5px solid black;
+}
+
+.jumbotron {
+	background-color: transparent;
 }
