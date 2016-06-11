@@ -50,56 +50,46 @@
 </button>
     </div>
 
-    <div>
-    </div>
-
-     <script>
-        function sentInfo() {
-
-            $("#AddJob").show();
-        }
-    </script>
-
     <div id = "AddJob" style="display:none">
-        <legend>Create a job</legend>
-
-        <p>
+      <fieldset>
+          <legend>Create a job</legend>
+  
+          <p>
           <!--<label>Text box</label>-->
-          <input type = "file"
-                 id = "dogimg"
-                 placeholder = "Image of the dog" 
-                 size = "30 * 20" /> 
+            <input type = "file"
+                  id = "dogimg"
+                   placeholder = "Image of the dog" 
+                  size = "30 * 20" /> 
 
-          <input type = "text"
-                 id = "description"
-                 placeholder = "Description of the dog" />
-        </p>
-
-        <p>
-          <input type = "text"
-                 id = "pay"
-                 placeholder = "Payment (Optional)"
-                 size = "17" />
-
-        </p>
-        <p>
-            The personal details you will submit below will be kept private! 
-        </p>
-          <input type = "text"
-                 id = "e-mail"
-                 placeholder = "Your e-mail" 
-                 size = "40" />
-   
-        </p>
+            <textarea id = "description"
+                   placeholder = "Description of the dog"></textarea>
+          </p>
 
         <p>
-        <button type="button" class="btn btn-info" onClick="sentInfo()">Create</button>
+            <input type = "text"
+                   id = "pay"
+                   placeholder = "Payment (Optional)"
+                   size = "14" />
 
         </p>
+          <p>
+              The personal details you will submit below will be kept private! 
+          </p>
+            <input type = "text"
+                   id = "e-mail"
+                   placeholder = "Your e-mail" 
+                   size = "40" />
+     
+          </p>
+
+          <p>
+          <button type="button" class="btn btn-info" onClick="sentInfo()" id="create">Create</button>
+
+          </p>
         </div>
+    </fieldset>
 
-
-        <a href="Daria.html"><button type="button" class="btn btn-info">Take</button></a>
+    <a href="Daria.html"><button type="button" class="btn btn-info">Take</button></a>
         
 
     <div id = "content">
@@ -107,8 +97,8 @@
     </div>
 
     <script type="text/javascript">
-        function takeFunction(){
-            var x = document.getElementById("take");
+        function sentInfo(){
+            var x = document.getElementById("create");
 
             var dogimg = document.getElementById("dogimg").value;
             var description = document.getElementById("description").value;
@@ -116,8 +106,10 @@
 
             if(dogimg=="" || description=="" || email==""){
                 alert("Please fill all requiered textboxes.");
+            }else{
+              alert("You succesfully created a job!");
+              location.reload();
             }
-            location.reload();
         }
     </script>
    
