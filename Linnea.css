@@ -4,14 +4,21 @@ body {
 	height: 100%;
 }
 
-#topTitle {
-	display: inline-block;
+#tital {
+	color: black;
+	text-align: center;
+	font-size: 80px;
+	font-family: "AR Christy", Blogger Sans;
 }
 
-#map {
-	height: 40%;
-	width: 100%;
+#logo {
+	vertical-align: left;
+}
+
+#DogImg{
 	border: 5px solid black;
+	height: 60px
+	width: 120px;
 }
 
 .jumbotron {
