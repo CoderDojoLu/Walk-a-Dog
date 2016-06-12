@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="leaflet.css">
 
   <link rel="stylesheet" href="bootstrap-3.3.6-dist\css\bootstrap.min.css">
-  <link rel="stylesheet" href="Linnea.css">
     <title>Walk-a-Dog</title>
     <link rel="stylesheet" href="style.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -171,7 +170,7 @@
                         output[y].image = "uk_dog.png";
                       }
 
-                      $("#outputP").append("<img style='height: 75px; width: 75px' src='http://towall.tk/" + output[y].image + "'> <br/> <p><strong>Basic Information: </strong>" + output[y].description + ",     " + output[y].email + "<strong>Payment: </strong>" + output[y].payment + "<br/></form>");
+                      $("#outputP").append("<img style='height: 75px; width: 75px' src='http://towall.tk/" + output[y].image + "'> <br/> <p><strong>Basic Information: </strong>" + output[y].description + ",     " + output[y].email + "<strong>Payment: </strong>" + output[y].payment + "<br/><button id='btn' type='button' onclick='deleteItem'>Take Job</button>");
 
                       y++;
 
@@ -187,29 +186,18 @@
     </p>
 
    <script>
-      function SentInfo() {
 
-        $("#AddJob").show();
-      }
-    
-
-          $("#elementID").submit(function(foo) {
-  
-        var url = "PHP_FILENAME.php"; // the script where you handle the form input.
-
-          $.ajax({
+      function deleteItem() {
+        $.ajax({
           url: url,
           type: "POST",
           processData: false,
           contentType: false,
-          success: function(data)
-        {
-          alert(data); // show response from the php script.
+          success: function(data) {
+            alert(data); // show response from the php script.
+          }
+        });
       }
-    });
-
-    foo.preventDefault(); // avoid to execute the actual submit of the form.
-});
       </script>
 
   <div id = "AddJob" style="display:none">
