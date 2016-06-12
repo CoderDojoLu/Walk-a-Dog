@@ -10,11 +10,12 @@ body {
 	font-family: "AR Christy", Blogger Sans;
 }
 
-<<<<<<< HEAD
+
 #map {
 	height: 40%;
 	width: 100%;
-=======
+}
+
 #logo {
 	vertical-align: left;
 }
@@ -23,7 +24,7 @@ body {
 	border: 5px solid black;
 	height: 60px
 	width: 120px;
->>>>>>> 787ae113cd5e131e2045ef1048e34cb64ff2fb0c
+
 }
 
 .jumbotron {
