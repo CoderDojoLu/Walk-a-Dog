@@ -1,7 +1,6 @@
 body {
 	background-image: url("background.jpg");
-	background-size: 100% 100%;
-	height: 100%;
+	background-size: 100% 250%;
 }
 
 #topTitle {
@@ -11,7 +10,6 @@ body {
 #map {
 	height: 40%;
 	width: 100%;
-	border: 5px solid black;
 }
 
 .jumbotron {
