@@ -1,4 +1,7 @@
 <?php
+  error_reporting(-1);
+  ini_set('display_errors', 'On');
+  set_error_handler("var_dump");
 	header('Access-Control-Allow-Origin: *');
 
 	$server = "localhost";
@@ -21,7 +24,31 @@
 
   $result = $conn->query($email);
 
-  mail($email, $useremail . "would like to walk your dog!", $message);
+  require_once "Mail.php";
+
+  $from = '<' + $useremail + '>';
+  $to = '<irneha@hotmail.com>'; // Fixed address (test)
+  $subject = 'I would like to walk your dog!';
+  $body = "" + $message + "";
+
+  $headers = array(
+      'From' => $from,
+      'To' => $to,
+      'Subject' => $subject
+  );
+
+  $smtp = Mail::factory('smtp', array(
+          'host' => 'ssl://mail.mbox.lu',
+          'port' => '465',
+          'auth' => true,
+          'username' => 'relay@pick-a-poop.dog',
+          'password' => '7erShIeStIon'
+      ));
+
+  // Send the mail
+  $mail = $smtp->send($to, $headers, $body);
+
+  echo 'Email sent';
 
   $conn->close();
 

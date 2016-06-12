@@ -13,16 +13,16 @@
     <input type="text" name="payment" placeholder="Payment"  id="payment">
     <input type="email"  name="email" placeholder="Email"  id="email">
     <input type="text" name="location" placeholder="Location (1-12)"  id="location">
-    <input type="submit" value="submit">
+    <input type="submit" value="Submit">
   </form>
 
   <h2>Get Job</h2>
   <form id="getjobform">
     <input type="text" name="area" placeholder="1-12" id="area">
-    <input type="submit" value="Submit">
+    <input type="submit" value="Search">
   </form>
 
-  <p id="outputP"></p>
+  <div id="outputP"></div>
 
 <script>
 
@@ -49,6 +49,7 @@ function addjob()
   $.post('backend.php', $('#addjobform').serialize())
 }*/
 // this is the id of the form
+
 $("#addjobform").submit(function(e) {
 
     var url = "addjob.php"; // the script where you handle the form input.
@@ -91,12 +92,8 @@ $("#getjobform").submit(function(k) {
                       output[y].image = "uk_dog.png";
                     }
 
-                    $("#outputP").append("<img style='height: 75px; width: 75px' src='http://towall.tk/" + output[y].image + "'> <br/> <p><strong>Basic Information: </strong>" + output[y].description + "</p> <br /> <p><strong>Location: </strong>" + output[y].location + "</p> <br /> <p><strong>Payment: </strong>" + output[y].payment + "<br/> <button id='btn' type='button' onclick='takeJob(" + y + ", " + output[y].id + ")'>Take Job</button> <div id='cForm" + y + "'></div>");
-                    
-                    var Payment = isNaN(output[y].payment); // Should check if € is needed at the end of variable payment
-                    if (Payment = false) {
-                      $("#outputP").append("€");
-                    }
+                    $("#outputP").append("<img style='height: 75px; width: 75px' src='http://towall.tk/" + output[y].image + "'> <br/> <p><strong>Basic Information: </strong>" + output[y].description + ", </p><p><strong>Payment: </strong>" + output[y].payment + "<br/> <button id='btn' type='button' onclick='openjobform()'>Take Job</button> <div id='cForm" + y + "'></div><form id='takejobform' style='display: none;'><input type='email' placeholder='Your email' id='takejobemail'><input type='text' placeholder='Message' id='takejobapplication'><input type='hidden' value='" + output[y].id + "'><input type='button' value='Submit' id='subBtn' onclick='getSubmit()'></form>");
+
                     y++;
 
                }
@@ -106,14 +103,33 @@ $("#getjobform").submit(function(k) {
     k.preventDefault(); // avoid to execute the actual submit of the form.
 });
 
-$("#takejobform").submit(function(x) {
+function getSubmit() {
+  console.log("Submitting...");
+  var url = "takejob.php"; // the script where you handle the form input.
+
+    $.ajax({
+      url: url,
+      type: "POST",
+      //data: new FormData( this ),
+      processData: false,
+      contentType: false,
+      success: function(data2) {
+        alert(data2); // show response from the php script.
+      }
+    });
+  //$("#takejobform").submit();
+};
+
+$("#takejobform").submit(function(foo) {
+
+  console.log("Submitted");
 
     var url = "takejob.php"; // the script where you handle the form input.
 
     $.ajax({
-           type: "POST",
            url: url,
-           data: new FormData( this ),
+           type: "POST",
+           //data: new FormData( this ),
            processData: false,
            contentType: false,
            success: function(data2)
@@ -122,11 +138,12 @@ $("#takejobform").submit(function(x) {
            }
          });
 
-    x.preventDefault(); // avoid to execute the actual submit of the form.
+    foo.preventDefault(); // avoid to execute the actual submit of the form.
 });
 
-function takeJob(formid, unid) {
-  $("#cForm" + formid + "").append("<form id='takejobform'><input type='text' placeholder='Message' id='message' name='message'><input type='text' placeholder='Your email' id='useremail' name='useremail'><input id='uid' name='uid' type='hidden' value='" + unid + "'><input type='submit' value='Send'></form>");
+function openjobform() {
+  $("#takejobform").show();
+  /*$("#cForm" + formid + "").append("<form id='takejobform'><input type='text' placeholder='Message' id='message' name='message'><input type='text' placeholder='Your email' id='useremail' name='useremail'><input id='uid' name='uid' type='hidden' value='" + unid + "'><input type='submit' value='Send'></form>");*/
 }
 
 </script>
