@@ -170,7 +170,11 @@
                         output[y].image = "uk_dog.png";
                       }
 
+<<<<<<< HEAD
                       $("#outputP").append("<img style='height: 75px; width: 75px' src='http://towall.tk/" + output[y].image + "'> <br/> <p><strong>Basic Information: </strong>" + output[y].description + ",     " + output[y].email + "<strong> Payment: </strong>" + output[y].payment + "<br/><button id='btn' type='button' onclick='deleteItem'>Take Job</button>");
+=======
+                      $("#outputP").append("<img style='height: 75px; width: 75px' src='http://towall.tk/" + output[y].image + "'> <br/> <p><strong>Basic Information: </strong>" + output[y].description + ",     " + output[y].email + "<strong>Payment: </strong>" + output[y].payment + "<br/><form id='removeForm'><input type='hidden' value='" + output[y].description + "' name='description'><input id='btn' type='submit' value='Take Job'></form>");
+>>>>>>> 54bfb17be5dc9f8da5abf21202094bbaef4f960f
 
                       y++;
 
@@ -187,17 +191,22 @@
 
    <script>
 
-      function deleteItem() {
+      $("#deleteForm").submit(function(g) {
+        alert("U sure?");
+        var url = "delete.php";
         $.ajax({
           url: url,
           type: "POST",
+          data: new FormData( this ),
           processData: false,
           contentType: false,
-          success: function(data) {
-            alert(data); // show response from the php script.
+          success: function(q) {
+            alert("Data removed hopefully, " + q + ""); // show response from the php script.
           }
         });
-      }
+        g.preventDefault();
+      });
+
       </script>
 
   <div id = "AddJob" style="display:none">
@@ -235,7 +244,7 @@
         <input type = "text"
                  name = "location"
                  placeholder = "Location (1-12)"
-                 size = "5" />
+                 size = "7" />
      <div>
         </div>
         <p>
